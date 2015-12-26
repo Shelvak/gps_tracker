@@ -1,0 +1,19 @@
+<h2><%= @device %></h2>
+
+<p>
+  <strong><%= Device.human_attribute_name 'identifier' %></strong>:
+  <%= @device.identifier %>
+</p>
+<p>
+  <strong><%= Device.human_attribute_name 'truck_id' %></strong>:
+  <%= @device.truck_id %>
+</p>
+<p>
+  <strong><%= Device.human_attribute_name 'enabled' %></strong>:
+  <%= @device.enabled %>
+</p>
+
+<div class="panel-footer">
+  <%= link_to t('label.edit'), edit_device_path(@device) if can? :update, @device %> |
+  <%= link_to t('label.list'), devices_path %>
+</div>

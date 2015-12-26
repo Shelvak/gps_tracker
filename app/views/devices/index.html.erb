@@ -1,0 +1,36 @@
+<% if @devices.empty? %>
+  <%= render 'shared/empty_index' %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Device.human_attribute_name 'identifier' %></th>
+        <th><%= Device.human_attribute_name 'truck_id' %></th>
+        <th><%= Device.human_attribute_name 'enabled' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @devices.each do |device| %>
+        <tr>
+          <td><%= device.identifier %></td>
+          <td><%= device.truck_id %></td>
+          <td><%= device.enabled %></td>
+          <td><%= link_to_show device %></td>
+          <td><%= link_to_edit edit_device_path(device) if can? :update, device %></td>
+          <td><%= link_to_destroy device if can? :destroy, device %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @devices %>
+<% end %>
+
+<div class="panel-footer">
+  <%= link_to(
+    t('view.devices.new', default: :'label.new'),
+    new_device_path, class: 'btn btn-primary'
+  ) if can? :create, Device %>
+</div>

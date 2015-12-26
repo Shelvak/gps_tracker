@@ -4,6 +4,10 @@ es:
     error_notification:
       default_message: "Se encontraron algunos problemas, por favor revise los datos..."
     labels: &attributes
+      device:
+        identifier: 'Identificador'
+        truck_id: 'Movil Nro'
+        enabled: 'Habilitado'
       user:
         email: "Correo"
         lastname: "Apellido"

@@ -7,11 +7,18 @@
 
   activerecord:
     models:
+      device:
+        one: 'Dispositivo'
+        other: 'Dispositivos'
       user:
         one: 'Usuario'
         other: 'Usuarios'
 
     attributes:
+      device:
+        identifier: 'Identificador'
+        truck_id: 'Movil Nro'
+        enabled: 'Habilitado'
       user:
         name: 'Nombre'
         lastname: 'Apellido'
@@ -43,6 +50,7 @@
   menu:
     actions:
       logout: 'Salir de la aplicación'
+    devices: 'Dispositivos'
     users: 'Usuarios'
 
   messages:
@@ -55,6 +63,18 @@
       empty_search:
         title:
           html: 'La búsqueda de <span class="label label-inverse">%{search}</span> no obtuvo ningún resultado.'
+    devices:
+      index_title: 'Listado de dispositivos'
+      show_title: 'Detalle de dispositivo'
+      new_title: 'Nuevo dispositivo'
+      edit_title: 'Modificar dispositivo'
+      correctly_created: 'Dispositivo agregado correctamente.'
+      correctly_updated: 'Dispositivo actualizado correctamente.'
+      correctly_destroyed: 'Dispositivo eliminado correctamente.'
+      stale_object_error: 'El dispositivo no pudo ser actualizado, intente nuevamente.'
+      empty_index:
+        html: 'No se ha creado ningún dispositivo hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo dispositivo</span>'
+      new: 'Nuevo dispositivo'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

@@ -5,6 +5,7 @@ require 'capybara/rails'
 require 'sidekiq/testing/inline'
 
 class ActiveSupport::TestCase
+  ActiveRecord::Migration.maintain_test_schema!
   # Add more helper methods to be used by all tests here...
 
   def error_message_from_model(model, attribute, message, extra = {})
