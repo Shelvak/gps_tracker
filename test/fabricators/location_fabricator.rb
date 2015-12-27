@@ -1,5 +1,5 @@
 Fabricator(:location) do
-  coordinates ""
-  device_id   1
-  taken_at    "2015-12-26 22:06:07"
+  coordinates { [Faker::Address.latitude, Faker::Address.longitude] }
+  device_id   { rand(100) }
+  taken_at    { Time.now }
 end

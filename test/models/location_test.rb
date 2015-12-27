@@ -14,11 +14,11 @@ class LocationTest < ActiveSupport::TestCase
   test 'update' do
     assert_difference 'PaperTrail::Version.count' do
       assert_no_difference 'Location.count' do
-        @location.update!(attr: 'Updated')
+        @location.update!(device_id: 975)
       end
     end
 
-    assert_equal 'Updated', @location.reload.attr
+    assert_equal 975, @location.reload.device_id
   end
 
   test 'destroy' do
@@ -28,19 +28,24 @@ class LocationTest < ActiveSupport::TestCase
   end
 
   test 'validates blank attributes' do
-    @location.attr = ''
+    @location.device_id = ''
+    @location.coordinates = ''
 
     assert @location.invalid?
-    assert_equal 1, @location.errors.size
-    assert_equal_messages @location, :attr, :blank
+    assert_equal 2, @location.errors.size
+    assert_equal_messages @location, :device_id, :blank
+    assert_equal_messages @location, :coordinates, :blank
   end
 
-  test 'validates unique attributes' do
-    new_location = Fabricate(:location)
-    @location.attr = new_location.attr
+  test 'assign lon and lat' do
+    lat = 13.001002
+    lon = 17.001002
+    @location.lat = lat
+    @location.lon = lon
+    @location.save!
 
-    assert @location.invalid?
-    assert_equal 1, @location.errors.size
-    assert_equal_messages @location, :attr, :taken
+    assert_equal [lat, lon], @location.reload.coordinates
+    assert_equal lat, @location.reload.lat
+    assert_equal lon, @location.reload.lon
   end
 end

@@ -75,6 +75,17 @@
       empty_index:
         html: 'No se ha creado ningún dispositivo hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nuevo dispositivo</span>'
       new: 'Nuevo dispositivo'
+    locations:
+      index_title: 'Listado de ubicaciones'
+      show_title: 'Detalle de ubicación'
+      new_title: 'Nueva ubicación'
+      edit_title: 'Modificar ubicación'
+      correctly_created: 'Ubicación agregada correctamente.'
+      correctly_updated: 'Ubicación actualizada correctamente.'
+      stale_object_error: 'La ubicación no pudo ser actualizado, intente nuevamente.'
+      empty_index:
+        html: 'No se ha creado ninguna ubicación hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nueva ubicación</span>'
+      new: 'Nueva ubicación'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

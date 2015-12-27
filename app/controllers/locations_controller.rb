@@ -52,12 +52,6 @@ class LocationsController < ApplicationController
     redirect_to edit_location_url(@location), alert: t('view.locations.stale_object_error')
   end
 
-  # DELETE /locations/1
-  def destroy
-    @location.destroy
-    redirect_to locations_url, notice: t('view.locations.correctly_destroyed')
-  end
-
   private
 
     def set_location
