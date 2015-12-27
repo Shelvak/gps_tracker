@@ -7,7 +7,9 @@ class LocationTest < ActiveSupport::TestCase
 
   test 'create' do
     assert_difference ['Location.count', 'PaperTrail::Version.count'] do
-      Location.create! Fabricate.attributes_for(:location)
+      Location.create! Fabricate.attributes_for(
+        :location, device_identifier: @location.device.identifier
+      )
     end
   end
 
@@ -40,12 +42,12 @@ class LocationTest < ActiveSupport::TestCase
   test 'assign lon and lat' do
     lat = 13.001002
     lon = 17.001002
-    @location.lat = lat
-    @location.lon = lon
+    @location.latitude = lat
+    @location.longitude = lon
     @location.save!
 
     assert_equal [lat, lon], @location.reload.coordinates
-    assert_equal lat, @location.reload.lat
-    assert_equal lon, @location.reload.lon
+    assert_equal lat, @location.reload.latitude
+    assert_equal lon, @location.reload.longitude
   end
 end

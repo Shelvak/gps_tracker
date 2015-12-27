@@ -10,6 +10,9 @@
       device:
         one: 'Dispositivo'
         other: 'Dispositivos'
+      location:
+        one: 'Ubicación'
+        other: 'Ubicaciones'
       user:
         one: 'Usuario'
         other: 'Usuarios'
@@ -19,6 +22,11 @@
         identifier: 'Identificador'
         truck_id: 'Movil Nro'
         enabled: 'Habilitado'
+      location:
+        coordinates: 'Coordenadas [lat, lon]'
+        device_id: 'Dispositivo'
+        taken_at: 'Emitido'
+        truck: 'Movil Nro'
       user:
         name: 'Nombre'
         lastname: 'Apellido'
@@ -51,6 +59,7 @@
     actions:
       logout: 'Salir de la aplicación'
     devices: 'Dispositivos'
+    locations: 'Ubicaciones'
     users: 'Usuarios'
 
   messages:
@@ -77,15 +86,8 @@
       new: 'Nuevo dispositivo'
     locations:
       index_title: 'Listado de ubicaciones'
-      show_title: 'Detalle de ubicación'
-      new_title: 'Nueva ubicación'
-      edit_title: 'Modificar ubicación'
-      correctly_created: 'Ubicación agregada correctamente.'
-      correctly_updated: 'Ubicación actualizada correctamente.'
-      stale_object_error: 'La ubicación no pudo ser actualizado, intente nuevamente.'
       empty_index:
-        html: 'No se ha creado ninguna ubicación hasta el momento, si quiere puede hacerlo desde el botón <span class="label label-info">Nueva ubicación</span>'
-      new: 'Nueva ubicación'
+        html: 'No se ha creado ninguna ubicación hasta el momento, hay que esperar a que se reporten'
     users:
       index_title: 'Listado de usuarios'
       show_title: 'Detalle de usuario'

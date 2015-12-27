@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only:  [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: :create
+  before_action :authenticate_device!, only: :create
+
 
   # GET /locations
   def index
@@ -7,58 +9,26 @@ class LocationsController < ApplicationController
     @locations = Location.all.page(params[:page])
   end
 
-  # GET /locations/1
-  def show
-    @title = t('view.locations.show_title')
-  end
-
-  # GET /locations/new
-  def new
-    @title = t('view.locations.new_title')
-    @location = Location.new
-  end
-
-  # GET /locations/1/edit
-  def edit
-    @title = t('view.locations.edit_title')
-  end
-
   # POST /locations
   def create
-    @title = t('view.locations.new_title')
-    @location = Location.new(location_params)
+    @location = Location.create(location_params)
 
     respond_to do |format|
-      if @location.save
-        format.html { redirect_to @location, notice: t('view.locations.correctly_created') }
-      else
-        format.html { render action: 'new' }
-      end
+      format.json { head :ok }
     end
-  end
-
-  # PUT /locations/1
-  def update
-    @title = t('view.locations.edit_title')
-
-    respond_to do |format|
-      if @location.update(location_params)
-        format.html { redirect_to @location, notice: t('view.locations.correctly_updated') }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
-  rescue ActiveRecord::StaleObjectError
-    redirect_to edit_location_url(@location), alert: t('view.locations.stale_object_error')
   end
 
   private
-
-    def set_location
-      @location = Location.find(params[:id])
+    def location_params
+      params.permit(:latitude, :longitude, :device_identifier, :taken_at)
     end
 
-    def location_params
-      params.require(:location).permit(:coordinates, :device_id, :taken_at)
+    def authenticate_device!
+      # Change for auth_token + identifier
+      unless Device.find_by(identifier: params[:device_identifier]).try(:auth?)
+        respond_to do |format|
+          format.json { head :unprocessable_entity }
+        end
+      end
     end
 end

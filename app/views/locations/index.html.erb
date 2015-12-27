@@ -5,9 +5,8 @@
     <thead>
       <tr>
         <th><%= Location.human_attribute_name 'coordinates' %></th>
-        <th><%= Location.human_attribute_name 'device_id' %></th>
+        <th><%= Location.human_attribute_name 'truck' %></th>
         <th><%= Location.human_attribute_name 'taken_at' %></th>
-        <th colspan="3"></th>
       </tr>
     </thead>
 
@@ -15,11 +14,8 @@
       <% @locations.each do |location| %>
         <tr>
           <td><%= location.coordinates %></td>
-          <td><%= location.device_id %></td>
-          <td><%= location.taken_at %></td>
-          <td><%= link_to_show location %></td>
-          <td><%= link_to_edit edit_location_path(location) if can? :update, location %></td>
-          <td><%= link_to_destroy location if can? :destroy, location %></td>
+          <td><%= location.truck %></td>
+          <td><%= l(location.taken_at) %></td>
         </tr>
       <% end %>
     </tbody>
@@ -27,10 +23,3 @@
 
   <%= paginate @locations %>
 <% end %>
-
-<div class="panel-footer">
-  <%= link_to(
-    t('view.locations.new', default: :'label.new'),
-    new_location_path, class: 'btn btn-primary'
-  ) if can? :create, Location %>
-</div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :locations, except: :destroy
+  resources :locations, only: [:index, :create]
   resources :devices
   devise_for :users
 
