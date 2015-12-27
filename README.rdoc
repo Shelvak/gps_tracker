@@ -1,6 +1,6 @@
 = GpsTracker
 
-Gps tracker
+Gps tracker is a web/api application to log gps locations from devices.
 
 === Build Status {<img src="https://secure.travis-ci.org/Shelvak/gps_tracker.png"/>}[http://travis-ci.org/Shelvak/gps_tracker]
 
