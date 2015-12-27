@@ -16,7 +16,7 @@
         <tr>
           <td><%= device.identifier %></td>
           <td><%= device.truck_id %></td>
-          <td><%= device.enabled %></td>
+          <td><%= t "label.#{device.enabled}" %></td>
           <td><%= link_to_show device %></td>
           <td><%= link_to_edit edit_device_path(device) if can? :update, device %></td>
           <td><%= link_to_destroy device if can? :destroy, device %></td>

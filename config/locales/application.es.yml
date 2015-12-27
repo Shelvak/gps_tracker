@@ -46,6 +46,8 @@
   label:
     'yes': 'Si'
     'no': 'No'
+    'true': 'Si'
+    'false': 'No'
     close: 'Cerrar'
     delete: 'Eliminar'
     edit: 'Editar'
