@@ -110,6 +110,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kgio (2.10.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     magick_columns (0.0.4)
@@ -159,6 +160,7 @@ GEM
       activesupport (= 4.2.5)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.15.0)
     rake (10.4.2)
     redis (3.2.2)
     request_store (1.2.1)
@@ -209,6 +211,10 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicorn (4.9.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     validates_timeliness (3.0.14)
       timeliness (~> 0.3.6)
     warden (1.2.4)
@@ -253,5 +259,6 @@ DEPENDENCIES
   simple_form
   thin
   uglifier
+  unicorn
   validates_timeliness
   web-console (~> 2.0)

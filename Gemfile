@@ -8,6 +8,7 @@ gem 'simple_form'
 gem 'paper_trail', '4.0.1'
 gem 'magick_columns'
 gem 'validates_timeliness'
+gem 'unicorn'
 
 # Auth & Mailing Gems
 gem 'devise'
@@ -23,6 +24,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-material-design'
+
 
 group :development, :test do
   gem 'byebug'
