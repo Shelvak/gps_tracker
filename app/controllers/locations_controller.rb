@@ -16,6 +16,10 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.json { head :ok }
     end
+  rescue
+    respond_to do |format|
+      format.json { head :ok }
+    end
   end
 
   private
